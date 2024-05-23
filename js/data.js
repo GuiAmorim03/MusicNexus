@@ -1,15 +1,9 @@
 const user_types = [
-    // qualquer músico
+    // qualquer músico, bandas ou outros grupos
     {
-        label: "Musician",
-        description: "Independent Artist",
+        label: "Musicians",
+        description: "Independent Artist or a Musical Group",
         image: "musician",
-    },
-    // bandas ou grupos musicais
-    {
-        label: "Musical groups",
-        description: "Bands or Orchestras",
-        image: "musical_groups",
     },
     // empresas de grande dimensão
     {
@@ -17,9 +11,15 @@ const user_types = [
         description: "Record Labels or Advertising Companies",
         image: "music_companies",
     },
+    // eventos
+    {
+        label: "Event Organizers",
+        description: "Event Organizers or Promoters",
+        image: "event_organizers",
+    },
     // publico
     {
-        label: "Music Fan",
+        label: "Music Fans",
         description: "People who love music",
         image: "fan",
     },

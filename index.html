@@ -44,19 +44,19 @@
 </head>
 
 <body>
-    <div class="container">
+    <div style="width: 90vw; margin: 0 5vw;">
         <div class="row" style="margin-top: 5vh;">
             <img src="images/utils/logo.png" style="width: 50%; margin-left: 25%;" />
         </div>
         <div class="row">
             <h5
                 style="text-align: center; margin-bottom: 2.5vh; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
-                Welcome! Choose your user type to continue.</h5>
+                Welcome! Please, select the category you fill in</h5>
         </div>
         <div class="row" id="user-types"></div>
     </div>
 
-    <script src="data.js"></script>
+    <script src="js/data.js"></script>
     <script>
         data = JSON.parse(localStorage.getItem('musicNexus'))
         const userTypesRow = document.getElementById('user-types')
