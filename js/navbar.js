@@ -1,6 +1,6 @@
 document.getElementById('navbar').innerHTML= `
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: rgba(0, 0, 0, .25)">
-<a class="navbar-brand" href="../">
+<a class="navbar-brand" href="index.html">
     <img src="images/utils/logo_white.png" height="40">
 </a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
