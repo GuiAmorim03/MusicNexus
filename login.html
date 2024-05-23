@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MusicNexus | Welcome</title>
+    <!-- <link rel="stylesheet" type="text/css" href="data/css/index.css"> -->
+    <meta charset="UTF-8">
+    <link rel="icon" href="images/utils/logo_icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-image: url('images/utils/index_back.png');
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .user-type-img {
+            width: 100%;
+            height: max-content;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .user-type-desc {
+            background-color: black;
+            color: white;
+            border-radius: 0 0 15px 15px;
+            padding: 8px 3px 1px 3px;
+            text-align: center;
+            font-size: small;
+        }
+
+        .user-type-box {
+            padding: 25px;
+            transition: 0.9s;
+            cursor: pointer;
+        }
+
+        .user-type-box:hover {
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 90vw; margin: 0 5vw;">
+        <div class="row" style="margin-top: 5vh;">
+            <img src="images/utils/logo.png" style="width: 50%; margin-left: 25%;" />
+        </div>
+        <div class="row">
+            <h5
+                style="text-align: center; margin-bottom: 2.5vh; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                Welcome! Please, select the category you fill in</h5>
+        </div>
+        <div class="row" id="user-types"></div>
+    </div>
+
+    <script>
+        data = JSON.parse(localStorage.getItem('musicNexus'))
+        const userTypesRow = document.getElementById('user-types')
+        data.user_types.forEach((userType) => {
+            const userTypeDiv = document.createElement('div');
+            userTypeDiv.className = 'col-lg-3 col-md-6 col-sm-12 user-type-box';
+            userTypeDiv.innerHTML = `
+                <img src="images/types/${userType.image}.jpg" alt=${userType.image} class="user-type-img">
+                <div class="user-type-desc">
+                    <h5>${userType.label}</h5>
+                    <p style="color:grey">${userType.description}</p>
+                </div>
+            `
+            userTypeDiv.onclick = handleClickOnTypeBox(userType)
+            userTypesRow.appendChild(userTypeDiv)
+        })
+
+        function handleClickOnTypeBox(userType) {
+            return function () {
+                data.loggedUserType = userType.label
+                localStorage.setItem('musicNexus', JSON.stringify(data))
+                window.location.href = 'music.html'
+            }
+        }
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
