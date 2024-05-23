@@ -19,18 +19,36 @@
         }
 
         .videos-container {
-            background-color: rgba(255, 255, 255, .25);
-            border: 1px solid rgba(255, 255, 255, .15);
+            background-color: rgba(255, 255, 255, .15);
+            /* border: 1px solid rgba(255, 255, 255, .15); */
             border-radius: 20px;
-            margin-top: 5vh;
+            margin-top: 15vh;
         }
+
+        .music-type {
+            border: 2px solid;
+            border-radius: 10px;
+            padding: 5px;
+            font-weight: bold;
+        }
+
+        .cover {
+            border-color: orangered;
+            color: orangered;
+        }
+
+        .original {
+            border-color: blueviolet;
+            color: blueviolet;
+        }
+
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(255, 255, 255, .5)">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: rgba(0, 0, 0, .25)">
         <a class="navbar-brand" href="/">
-            <img src="/images/utils/logo.png" height="40">
+            <img src="/images/utils/logo_white.png" height="40">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +65,7 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <div>Welcome, someone</div>
+                <div class="text-light">Welcome, someone</div>
             </form>
         </div>
     </nav>

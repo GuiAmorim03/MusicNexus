@@ -8,15 +8,17 @@ data.videos.forEach(video => {
     <div class="card" style="border: 0;">
         <video src="videos/video_${video.id}.mp4" class="card-img-top" alt="video: ${video.title}"></video>
             <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-between align-items-top">
                     <h5 class="card-title">${video.title}</h5>
                     <img src="./icons/${video.instrument.toLowerCase()}.svg" height="25">
                 </div>
                 <div class="text-muted d-flex justify-content-between align-items-center">
-                    <div>    
+                    <div style="font-size:small">    
                         <i class="fas fa-user"></i> ${video.author}
                     </div>
-                    ${video.type}
+                    <span class="music-type ${video.type}">
+                    ${video.type.toUpperCase()}
+                    </span>
                 </div>
             </div>
         </div>
