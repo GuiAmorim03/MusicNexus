@@ -59,6 +59,13 @@
 
     <script>
         data = JSON.parse(localStorage.getItem('musicNexus'))
+        if (data) {
+            console.log(data)
+        } else {
+            console.log('Data not found')
+            window.location.href = "index.html"
+        }
+
         const userTypesRow = document.getElementById('user-types')
         data.user_types.forEach((userType) => {
             const userTypeDiv = document.createElement('div');

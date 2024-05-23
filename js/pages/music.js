@@ -1,9 +1,15 @@
 data = JSON.parse(localStorage.getItem('musicNexus'))
+if (data) { 
+    console.log(data)
+} else {
+    console.log('Data not found')
+    window.location.href="index.html"
+}
 
 const videosRow = document.getElementById('videos')
 data.videos.forEach(video => {
     const videoDiv = document.createElement('div')
-    videoDiv.classList.add('col-lg-4', 'col-md-6', 'col-sm-12', 'mb-3', 'mt-2');
+    videoDiv.classList.add('col-lg-4', 'col-md-12', 'col-sm-12', 'mb-3', 'mt-2');
     videoDiv.innerHTML = `
     <div class="card" style="border: 0;">
         <video src="videos/video_${video.id}.mp4" class="card-img-top" alt="video: ${video.title}"></video>
