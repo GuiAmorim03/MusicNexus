@@ -18,25 +18,25 @@ function createVideos(instruments, type) {
                 const videoDiv = document.createElement('div')
                 videoDiv.classList.add('col-lg-4', 'col-md-12', 'col-sm-12', 'mb-3', 'mt-2');
                 videoDiv.innerHTML = `
-                <div class="card" style="border: 0;">
-                    <video src="videos/video_${video.id}.mp4" class="card-img-top" alt="video: ${video.title}"></video>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-top">
-                                <h5 class="card-title">${video.title}</h5>
-                                <img src="./icons/${video.instrument.toLowerCase()}.svg" height="25">
-                            </div>
-                            <div class="text-muted d-flex justify-content-between align-items-center">
-                                <div style="font-size:small">    
-                                    <i class="fas fa-user"></i> ${video.author}
+                    <div class="card" style="border: 0; cursor:pointer" onclick='openModal("videos/video_${video.id}.mp4", "${video.title}", "${video.author}")'>
+                        <video src="videos/video_${video.id}.mp4" class="card-img-top" alt="video: ${video.title}"></video>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-top">
+                                    <h5 class="card-title">${video.title}</h5>
+                                    <img src="./icons/${video.instrument.toLowerCase()}.svg" height="25">
                                 </div>
-                                <span class="music-type ${video.type}">
-                                    ${video.type.toUpperCase()}
-                                </span>
+                                <div class="text-muted d-flex justify-content-between align-items-center">
+                                    <div style="font-size:small">    
+                                        <i class="fas fa-user"></i> ${video.author}
+                                    </div>
+                                    <span class="music-type ${video.type}">
+                                        ${video.type.toUpperCase()}
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                `;
-            videosRow.appendChild(videoDiv);
+                    `;
+                videosRow.appendChild(videoDiv);
             }
         }
     })
@@ -56,7 +56,6 @@ instruments.forEach(instrument => {
 })
 
 let selectedInstruments = []
-const selectedType = ''
 
 function updateFilters() {
     selectedInstruments = []
@@ -77,3 +76,13 @@ function resetFilters() {
     document.getElementById('music-type').value = 'all'
     createVideos([], "all")
 }
+
+
+function openModal(videoSrc, videoTitle, videoAuthor) {
+    const modalVideoSource = document.getElementById('modalVideoSource');
+    modalVideoSource.src = videoSrc;
+    const modalVideo = document.getElementById('modalVideo');
+    modalVideo.load();
+    document.getElementById('videoModalLabel').innerText = videoTitle + " (" + videoAuthor + ")"
+    $('#videoModal').modal('show');
+};
