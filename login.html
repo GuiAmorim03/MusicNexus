@@ -84,6 +84,14 @@
         function handleClickOnTypeBox(userType) {
             return function () {
                 data.loggedUserType = userType.label
+                if (userType.label == "Musicians")
+                    data.loggedUser = "Bruno Marciano"
+                else if (userType.label == "Music Companies")
+                    data.loggedUser = "Sony Music"
+                else if (userType.label == "Event Organizers")
+                    data.loggedUser = "AUAAV"
+                else 
+                    data.loggedUser = "Music Fan"
                 localStorage.setItem('musicNexus', JSON.stringify(data))
                 window.location.href = 'music.html'
             }
