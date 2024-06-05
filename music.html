@@ -41,7 +41,6 @@
             border-color: blueviolet;
             color: blueviolet;
         }
-
     </style>
 </head>
 
@@ -49,7 +48,29 @@
     <div id="navbar"></div>
 
     <div class="container videos-container">
-        <!-- <div class="row p-4"> fiters</div> -->
+        <div class="row p-2">
+            <div class="col-lg-6 col-md-12 col-sm-12 p-4">
+                <div class="form-check form-check-inline" id="instruments-checkbox"></div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 p-4">
+                <div style="display: flex; justify-content: end;">
+                    <label for="type" class="text-white mr-3 mt-2 mb-1">Music Type: </label>
+                    <select class="form-select" id="music-type" onchange="updateFilters()" >
+                        <option value="all">All</option>
+                        <option value="cover">Cover</option>
+                        <option value="original">Original</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row pb-4">
+            <div class="col-12" style="display: flex; align-items: center; justify-content: center;">
+                <button class="btn btn-light" onclick="resetFilters()">Reset Filters</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container videos-container" style="margin-top: 5vh;">
         <div class="row p-4" id="videos"></div>
     </div>
 
