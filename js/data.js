@@ -64,6 +64,49 @@ const videos = [
     },
 ]
 
+const events = [
+    {
+        type: "LOOKING",
+        title: "Integra-te 2024",
+        description: "Looking for a guitar player for the main stage",
+        date: "2024-09-01",
+        organizer: "AUAAV",
+        link: "https://www.ua.pt/",
+    },
+    {
+        type: "WORKSHOP",
+        title: "Piano Masterclass",
+        description: "Masterclass with the famous pianist Key Master at the university",
+        date: "2024-11-19",
+        organizer: "AUAAV",
+        link: "https://www.ua.pt/",
+    },
+    {
+        type: "WORKSHOP",
+        title: "String Orchestra for beginners",
+        description: "Come to play and gain some experience with our music students",
+        date: "2025-02-17",
+        organizer: "AUAAV",
+        link: "https://www.ua.pt/",
+    },
+    {
+        type: "LOOKING",
+        title: "Enterro 2025",
+        description: "Looking for a duo to sing on the open day",
+        date: "2025-04-27",
+        organizer: "AUAAV",
+        link: "https://www.ua.pt/",
+    },
+    {
+        type: "LOOKING",
+        title: "Rock in Rio 2025",
+        description: "Looking for a band to play on the AB/CD day",
+        date: "2025-06-27",
+        organizer: "CM Lisboa",
+        link: "https://www.ua.pt/",
+    },
+]
+
 const users = [
     {
         name: "Four & Half ft. Big Charles",
@@ -100,5 +143,6 @@ const users = [
 data = {}
 data.user_types = user_types;
 data.videos = videos;
+data.events = events;
 data.users = users;
 localStorage.setItem('musicNexus', JSON.stringify(data))
