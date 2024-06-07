@@ -60,7 +60,36 @@ const videos = [
     },
 ]
 
+const users = [
+    {
+        name: "Four & Half ft. Big Charles",
+        description: "Four & Half: we are a band from Portugal that sometimes plays with Big Charles",
+        email: "fourh@gmail.com",
+    },
+    {
+        name: "Jogo Frio",
+        description: "I'm starting to make some guitar covers",
+        email: "jogo@outlook.pt",
+    },
+    {
+        name: "Bruno Marciano",
+        description: "I'm a singer. I make original songs. I'm not from Mars.",
+        email: "themartian@gmail.com",
+    },
+    {
+        name: "António Simões",
+        description: "I don't need to be young to play piano",
+        email: "tonysimons@spao.pt",
+    },
+    {
+        name: "AUAAV",
+        description: "Associação Académica da Universidade de Aveiro",
+        email: null,
+    }
+]
+
 data = {}
 data.user_types = user_types;
 data.videos = videos;
+data.users = users;
 localStorage.setItem('musicNexus', JSON.stringify(data))
