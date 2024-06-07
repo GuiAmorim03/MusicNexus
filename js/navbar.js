@@ -2,6 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const data = JSON.parse(localStorage.getItem('musicNexus'));
     const navbar = document.getElementById('navbar');
 
+    // let activeTab = decodeURIComponent(window.location.search.split('?')[1])
+    let activeTab = window.location.pathname
+    console.log(activeTab)
+
+
     let profileLink = `<div class="text-light" href="profile.html">Welcome, ${data.loggedUser}</div>`;
     if (data.loggedUserType !== "Music Fans") {
         profileLink = `<a class="text-light" href="profile.html">Welcome, ${data.loggedUser}</a>`;
@@ -19,11 +24,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Music</a>
+                    <li class="nav-item ${activeTab.includes("music") ? 'active' : ''}">
+                        <a class="nav-link" href="music.html">Music</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Events</a>
+                    <li class="nav-item ${activeTab.includes("events") ? 'active' : ''}">
+                        <a class="nav-link" href="events.html">Events</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
