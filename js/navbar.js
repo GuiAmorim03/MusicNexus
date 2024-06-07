@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     let profileLink = `<div class="text-light" href="profile.html">Welcome, ${data.loggedUser}</div>`;
-    if (data.loggedUserType !== "Music Fans") {
+    if ((data.loggedUserType !== "Music Fans") && (data.loggedUserType !== "Music Companies")) {
         profileLink = `<a class="text-light" href="profile.html">Welcome, ${data.loggedUser}</a>`;
     }
 

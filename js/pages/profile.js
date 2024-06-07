@@ -12,8 +12,10 @@ let profileToSearch = decodeURIComponent(window.location.search.split('?')[1])
 
 let user;
 
+let isOnOwnProfile = false
 if (profileToSearch === 'undefined') {
     profileToSearch = data.loggedUser
+    isOnOwnProfile = true
 }
 
 user = users.find(user => user.name == profileToSearch)
@@ -24,8 +26,10 @@ document.getElementById('user-name').innerText=user.name;
 document.getElementById('user-bio').innerText=user.description;
 document.getElementById('user-email').innerText=user.email
 document.getElementById('user-email').href=`mailto:${user.email}`;
+document.getElementById('user-phone').innerText=user.phone;
+document.getElementById('user-phone').href=`tel:${user.phone}`;
 console.log(user.email)
-if (user.email !== null){
+if ((data.loggedUserType==="Music Companies" || data.loggedUserType==="Event Organizers" || isOnOwnProfile) && user.email !== null){
     document.getElementById('email-section').classList.remove('d-none')
 }
 

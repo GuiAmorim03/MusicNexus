@@ -10,33 +10,50 @@ function createVideos(instruments, type) {
     const videosRow = document.getElementById('videos')
     videosRow.innerHTML = "";
     data.videos.forEach(video => {
-        if (instruments.length==0 || instruments.includes(video.instrument)) {
-            if (type == "all" || video.type == type) {
-                const videoDiv = document.createElement('div')
+        if (instruments.length === 0 || instruments.includes(video.instrument)) {
+            if (type === "all" || video.type === type) {
+                const videoDiv = document.createElement('div');
                 videoDiv.classList.add('col-lg-4', 'col-md-12', 'col-sm-12', 'mb-3', 'mt-2');
-                videoDiv.innerHTML = `
-                    <div class="card" style="border: 0; cursor:pointer" onclick='openModal("videos/video_${video.id}.mp4", "${video.title}", "${video.author}", "${video.stars}")'>
-                        <video src="videos/video_${video.id}.mp4" class="card-img-top" alt="video: ${video.title}"></video>
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-top">
-                                    <h5 class="card-title">${video.title}</h5>
-                                    <img src="./icons/${video.instrument.toLowerCase()}.svg" height="25">
-                                </div>
-                                <div class="text-muted d-flex justify-content-between align-items-center">
-                                    <div style="font-size:small">    
-                                        <i class="fas fa-user"></i> ${video.author}
-                                    </div>
-                                    <span class="music-type ${video.type}">
-                                        ${video.type.toUpperCase()}
-                                    </span>
-                                </div>
+                const hasPermissionToWatchTheVideo = video.protected && (data.loggedUserType === "Music Fans" || data.loggedUserType === "Musicians")
+
+                let videoCardContent = `
+                    <video src="videos/video_${video.id}.mp4" class="card-img-top" alt="video: ${video.title}" style="filter: grayscale(${hasPermissionToWatchTheVideo ? 100 : 0}%);"></video>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-top">
+                            <h5 class="card-title">${video.title}</h5>
+                            <img src="./icons/${video.instrument.toLowerCase()}.svg" height="25">
+                        </div>
+                        <div class="text-muted d-flex justify-content-between align-items-center">
+                            <div style="font-size:small">
+                                <i class="fas fa-user"></i> ${video.author}
                             </div>
+                            <span class="music-type ${video.type}">
+                                ${video.type.toUpperCase()}
+                            </span>
+                        </div>
+                    </div>
+                `;
+
+                
+                if (hasPermissionToWatchTheVideo) {
+                    videoCardContent += `
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: top; align-items: center; flex-direction: column; color: white; text-align: center; padding: 1em;">
+                            <i class="fas fa-lock" style="font-size: 2em; margin-bottom: 0.5em;"></i>
+                            <p style="margin: 0;">Log in as an <i>Event Organizer</i> or a <i>Music Company</i> to watch this protected content</p>
                         </div>
                     `;
+                }
+
+                videoDiv.innerHTML = `
+                    <div class="card" style="border: 0; position: relative; ${hasPermissionToWatchTheVideo ? '' : 'cursor:pointer'}" ${hasPermissionToWatchTheVideo ? '' : `onclick='openModal("videos/video_${video.id}.mp4", "${video.title}", "${video.author}", "${video.stars}")'`}>
+                        ${videoCardContent}
+                    </div>
+                `;
+
                 videosRow.appendChild(videoDiv);
             }
         }
-    })
+    });
 }
 createVideos([], "all")
 
@@ -85,7 +102,7 @@ function openModal(videoSrc, videoTitle, videoAuthor, videoStars) {
     $('#videoModal').modal('show');
     $('#star-logo').removeClass('fas fa-star');
     $('#star-logo').addClass('far fa-star');
-    document.getElementById('profile-link').href="profile.html?"+videoAuthor;
+    document.getElementById('profile-link').href = "profile.html?" + videoAuthor;
     document.getElementById('profile-link').innerText = "More About " + videoAuthor;
 };
 
