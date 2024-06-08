@@ -70,7 +70,7 @@ const events = [
         title: "Integra-te 2024",
         description: "Looking for a guitar player for the main stage",
         date: "2024-09-01",
-        organizer: "AUAAV",
+        organizer: "AAUAV",
         link: "https://www.ua.pt/",
     },
     {
@@ -78,7 +78,7 @@ const events = [
         title: "Piano Masterclass",
         description: "Masterclass with the famous pianist Key Master at the university",
         date: "2024-11-19",
-        organizer: "AUAAV",
+        organizer: "AAUAV",
         link: "https://www.ua.pt/",
     },
     {
@@ -86,7 +86,7 @@ const events = [
         title: "String Orchestra for beginners",
         description: "Come to play and gain some experience with our music students",
         date: "2025-02-17",
-        organizer: "AUAAV",
+        organizer: "AAUAV",
         link: "https://www.ua.pt/",
     },
     {
@@ -94,7 +94,7 @@ const events = [
         title: "Enterro 2025",
         description: "Looking for a duo to sing on the open day",
         date: "2025-04-27",
-        organizer: "AUAAV",
+        organizer: "AAUAV",
         link: "https://www.ua.pt/",
     },
     {
@@ -133,7 +133,7 @@ const users = [
         email: "tonysimons@spao.pt",
     },
     {
-        name: "AUAAV",
+        name: "AAUAV",
         description: "Associação Académica da Universidade de Aveiro",
         email: null,
         phone: null,
