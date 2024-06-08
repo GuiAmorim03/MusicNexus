@@ -1,9 +1,5 @@
 data = JSON.parse(localStorage.getItem('musicNexus'))
-let users;
-if (data) {
-    users = data.users
-} else {
-    console.log('Data not found')
+if (!data) {
     window.location.href = "index.html"
 }
 
@@ -18,8 +14,7 @@ if (profileToSearch === 'undefined') {
     isOnOwnProfile = true
 }
 
-user = users.find(user => user.name == profileToSearch)
-console.log(user)
+user = data.users.find(user => user.name == profileToSearch)
 
 document.getElementById('user-photo').src=`./images/users/${user.name}.png`;
 document.getElementById('user-name').innerText=user.name;
@@ -146,7 +141,6 @@ function createInterestedTable(interestedPeople) {
     `;
 
     interestedPeople.forEach(person => {
-        console.log(person)
         tableContent += `
             <tr>
                 <td>${person}</td>

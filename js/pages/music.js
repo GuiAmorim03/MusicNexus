@@ -1,8 +1,5 @@
 data = JSON.parse(localStorage.getItem('musicNexus'))
-if (data) {
-    console.log(data)
-} else {
-    console.log('Data not found')
+if (!data) {
     window.location.href = "index.html"
 }
 

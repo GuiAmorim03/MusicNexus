@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // let activeTab = decodeURIComponent(window.location.search.split('?')[1])
     let activeTab = window.location.pathname
-    console.log(activeTab)
 
 
     let profileLink = `<div class="text-light" href="profile.html">Welcome, ${data.loggedUser}</div>`;
