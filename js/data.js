@@ -72,6 +72,7 @@ const events = [
         date: "2024-09-01",
         organizer: "AAUAV",
         link: "https://www.ua.pt/",
+        interested: ["Warmplay"],
     },
     {
         type: "WORKSHOP",
@@ -96,6 +97,7 @@ const events = [
         date: "2025-04-27",
         organizer: "AAUAV",
         link: "https://www.ua.pt/",
+        interested: ["Warmplay", "Bruno Martian"],
     },
     {
         type: "LOOKING",
@@ -104,6 +106,7 @@ const events = [
         date: "2025-06-27",
         organizer: "CM Lisboa",
         link: "https://www.ua.pt/",
+        interested: ["Four & Half ft. Big Charles"]
     },
 ]
 
@@ -113,30 +116,35 @@ const users = [
         description: "Four & Half: we are a band from Portugal that sometimes plays with Big Charles",
         email: "fourh@gmail.com",
         phone: Math.floor(Math.random() * (999999999 - 1000000 + 1)) + 1000000,
+        user_type: "Musicians",
     },
     {
         name: "Warmplay",
         description: "I'm starting to make some guitar covers",
         email: "warm@outlook.pt",
         phone: Math.floor(Math.random() * (999999999 - 1000000 + 1)) + 1000000,
+        user_type: "Musicians",
     },
     {
         name: "Bruno Martian",
         description: "I'm a singer. I make original songs. I'm not from Mars.",
         email: "themartian@gmail.com",
         phone: Math.floor(Math.random() * (999999999 - 1000000 + 1)) + 1000000,
+        user_type: "Musicians",
     },
     {
         name: "Anthony Simmons",
         description: "I don't need to be young to play piano",
         phone: Math.floor(Math.random() * (999999999 - 1000000 + 1)) + 1000000,
         email: "tonysimons@spao.pt",
+        user_type: "Musicians",
     },
     {
         name: "AAUAV",
         description: "Associação Académica da Universidade de Aveiro",
         email: null,
         phone: null,
+        user_type: "Event Organizers",
     }
 ]
 

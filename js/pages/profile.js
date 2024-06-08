@@ -28,14 +28,15 @@ document.getElementById('user-email').innerText=user.email
 document.getElementById('user-email').href=`mailto:${user.email}`;
 document.getElementById('user-phone').innerText=user.phone;
 document.getElementById('user-phone').href=`tel:${user.phone}`;
-console.log(user.email)
 if ((data.loggedUserType==="Music Companies" || data.loggedUserType==="Event Organizers" || isOnOwnProfile) && user.email !== null){
     document.getElementById('email-section').classList.remove('d-none')
 }
 
 
 function createVideos() {
+    document.getElementById('profile-content-title').innerText = "My Portfolio"
     const videosRow = document.getElementById('videos')
+    videosRow.classList.remove('d-none')
     videosRow.innerHTML = "";
     data.videos.forEach(video => {
         if (video.author === user.name){
@@ -61,7 +62,56 @@ function createVideos() {
         }
     })
 }
-createVideos()
+
+function createEvents() {
+    document.getElementById('profile-content-title').innerText = "My Events"
+    const eventsRow = document.getElementById('events')
+    eventsRow.classList.remove('d-none')
+    eventsRow.innerHTML = "";
+    data.events.forEach((event, index) => {
+        if (event.organizer === user.name) {
+            const eventDiv = document.createElement('div');
+            eventDiv.classList.add('col-lg-6', 'col-md-12', 'col-sm-12', 'mb-3', 'mt-3');
+            
+            let interestedInfo = '';
+            if (event.interested) {
+                interestedInfo = `
+                    <i class="fas fa-users"></i> ${event.interested.length} interested
+                    <button onclick='openModalForEvent(${JSON.stringify(event.interested)})' class="btn btn-outline-primary"><i class="fas fa-eye"></i></button>
+                `;
+            }
+            eventDiv.innerHTML = `
+                <div class="card border-0" style="height:30vh; object-fit:cover">
+                    <div class="row g-0">
+                        <div class="col-4">
+                            <img src="./images/events/${index + 1}.png" alt="event: ${index + 1}" class="img-fluid" style="height:30vh; object-fit:cover">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body">
+                                <h6 class="card-title">${event.title}</h6>
+                                <p class="card-text text-muted" style="font-size:small">${event.description}</p>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <i class="fas fa-clock"></i> ${event.date}<br/>
+                                    </div>
+                                    <div class="col-12">
+                                        <i class="fas fa-clock"></i> ${event.date}<br/>
+                                        ${interestedInfo}
+                                        <br/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            eventsRow.appendChild(eventDiv);
+        }
+    });
+}
+
+if (user.user_type === "Musicians") createVideos();
+if (user.user_type === "Event Organizers") createEvents();
 
 function openModal(videoSrc, videoTitle, videoAuthor, videoStars) {
     const modalVideoSource = document.getElementById('modalVideoSource');
@@ -78,3 +128,38 @@ function updateStar() {
     $('#star-logo').addClass('fas fa-star');
 }
 
+function openModalForEvent(interestedPeople) {
+    const modalBody = document.querySelector('#eventModal .modal-body');
+    modalBody.innerHTML = createInterestedTable(interestedPeople);
+    $('#eventModal').modal('show');
+}
+
+function createInterestedTable(interestedPeople) {
+    let tableContent = `
+        <table class="table table-striped bg-white m-0">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Profile Link</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
+    interestedPeople.forEach(person => {
+        console.log(person)
+        tableContent += `
+            <tr>
+                <td>${person}</td>
+                <td><a href="profile.html?${person}">View Profile</a></td>
+            </tr>
+        `;
+    });
+
+    tableContent += `
+            </tbody>
+        </table>
+    `;
+
+    return tableContent;
+}
