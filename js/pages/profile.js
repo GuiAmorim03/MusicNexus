@@ -92,10 +92,9 @@ function createEvents() {
                                 <p class="card-text text-muted" style="font-size:small">${event.description}</p>
                                 <div class="row">
                                     <div class="col-12">
-                                        <i class="fas fa-clock"></i> ${event.date}<br/>
+                                        <i class="fas fa-calendar"></i> ${event.date}<br/>
                                     </div>
                                     <div class="col-12">
-                                        <i class="fas fa-clock"></i> ${event.date}<br/>
                                         ${interestedInfo}
                                         <br/>
                                     </div>

@@ -38,7 +38,7 @@ function createEvents(type) {
                                 <p class="card-text text-muted">${event.description}</p>
                                 <div class="row">
                                     <div class="col-7">
-                                        <i class="fas fa-clock"></i> ${event.date}<br/>
+                                        <i class="fas fa-calendar"></i> ${event.date}<br/>
                                         <i class="fas fa-users"></i> ${event.organizer}<br/>
                                         <i class="fas fa-link"></i> <a href="${event.link}" target="_blank" >${event.link}</a><br/>
                                     </div>
