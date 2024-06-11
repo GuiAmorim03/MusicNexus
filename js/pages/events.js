@@ -24,12 +24,12 @@ function createEvents(type) {
             const eventDiv = document.createElement('div');
             eventDiv.classList.add('col-lg-6', 'col-md-12', 'col-sm-12', 'mb-3', 'mt-3');
             eventDiv.innerHTML = `
-                <div class="card border-0" style="height:30vh; object-fit:cover">
-                    <div class="row g-0">
-                        <div class="col-4">
+                <div class="card border-0" style="">
+                    <div class="row ">
+                        <div class="col-12 col-lg-4">
                             <img src="./images/events/${index + 1}.png" alt="event: ${index + 1}" class="img-fluid" style="height:30vh; object-fit:cover">
                         </div>
-                        <div class="col-8">
+                        <div class="col-12 col-lg-8">
                             <div class="card-body">
                                 <h5 class="card-title">${event.title}</h5>
                                 <p class="card-text text-muted">${event.description}</p>
